@@ -1,0 +1,40 @@
+{
+  "name": "sitemap-gen",
+  "version": "1.0.0",
+  "description": "A Sitemap XML generator from a list of URLs.",
+  "main": "./bin/sitemapgen",
+  "scripts": {
+    "sitemap-gen": "./bin/sitemapgen"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryanburgess/sitemap-gen.git"
+  },
+  "keywords": [
+    "module",
+    "javascript",
+    "npm",
+    "sitemap",
+    "xml",
+    "generator",
+    "generate",
+    "node",
+    "nodejs"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jsonlint": "^1.0.4",
+    "grunt-newer": "^1.1.0",
+    "jshint-stylish": "^1.0.0"
+  },
+  "author": "Ryan Burgess @burgessdryan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryanburgess/sitemap-gen/issues"
+  },
+  "homepage": "https://github.com/ryanburgess/sitemap-gen"
+}

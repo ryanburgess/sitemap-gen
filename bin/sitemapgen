@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var pkg = require('../package.json');
+var version = pkg.version;
+var languages = ['da','de','es','es-latam','fi','fr','it','ja','ko','nl','pl','pt','pt-br','ru','sv','tr','zh-cn','zh-tw'];
+var output = './sitemap.xml';
+var input = './sitemap.txt';
+var domain = 'https://domain.com/';
+
+// get parameters passed through console
+process.argv.forEach(function (val, index, array) {
+  if(val.indexOf('input') > -1){
+    input = val.split('=');
+    input = input[1];
+  }else if(val.indexOf('output') > -1){
+    output = val.split('=');
+    output = output[1];
+  }else if(val.indexOf('domain') > -1){
+    domain = val.split('=');
+    domain = domain[1];
+  }
+});
+
+fs.writeFile(output, '');
+
+// start document
+fs.appendFileSync(output, '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">' + '\n');
+
+fs.readFileSync(input).toString().split('\n').forEach(function (line) {
+  var line = line.toString().trim();
+  var link = line.split(domain);
+
+  //english version
+  fs.appendFileSync(output, '\t<url>' + '\n');
+  fs.appendFileSync(output, '\t\t<loc>' + line + '</loc>\n');
+  fs.appendFileSync(output, '\t\t<changefreq>weekly</changefreq>\n');
+  fs.appendFileSync(output, '\t\t<xhtml:link href="' + line + '" hreflang="en" rel="alternative" />\n');
+
+  for(var i = 0; i < languages.length; i++) {
+    fs.appendFileSync(output, '\t\t<xhtml:link href="'+ domain +'/intl/' + languages[i] + '/' + link[1] + '" hreflang="' + languages[i] + '" rel="alternative" />\n');
+  }
+
+  fs.appendFileSync(output, '\t</url>' + '\n');
+});
+
+fs.appendFileSync(output, '</urlset>');
+console.log('Sitemap XML generated ' + version);
