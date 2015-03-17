@@ -1,6 +1,6 @@
 {
   "name": "sitemap-gen",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Sitemap XML generator from a list of URLs.",
   "main": "./bin/sitemapgen",
   "bin": {

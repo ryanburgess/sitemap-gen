@@ -11,6 +11,7 @@ npm install sitemap-gen -g
 sitemap-gen input=links.txt output=sitemap.xml domain=https://domain.com
 ```
 ## Release History
+* 1.0.2: Fix double slash for international URLs.
 * 1.0.1: Update generator script.
 * 1.0.0: Initial release.
  
