@@ -6,7 +6,7 @@ A Sitemap XML generator from a list of URLs.
 ```js
 npm install sitemap-gen -g
 ```
-## Use
+## CLI
 ```js
 sitemap-gen input=links.txt output=sitemap.xml domain=https://domain.com
 ```
