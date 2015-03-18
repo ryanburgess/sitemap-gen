@@ -1,5 +1,8 @@
 Sitemap XML Generator
 =============
+
+[![npm version](https://badge.fury.io/js/sitemap-gen.svg)](http://badge.fury.io/js/sitemap-gen)
+
 A Sitemap XML generator from a list of URLs.
  
 ## Install
